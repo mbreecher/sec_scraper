@@ -6,13 +6,13 @@ from datetime import datetime
 from collections import defaultdict
 
 pstart = datetime.now()
-dest = open('C:/cygwin64/home/Mike.Breecher/sec-scraper/test/fact_counts.csv', 'w')
+dest = open('C:/ipy/sec_scraper/2015-05/fact_counts.csv', 'w')
 writer = csv.writer(dest)
 #error file
-error = open('C:/cygwin64/home/Mike.Breecher/sec-scraper/test/errors.csv', 'w')
+error = open('C:/ipy/sec_scraper/2015-05/errors.csv', 'w')
 error_write = csv.writer(error)
 
-with open('C:/cygwin64/home/Mike.Breecher/sec-scraper/test/ciks.csv', 'rb') as f:
+with open('C:/ipy/sec_scraper/2015-05/ciks.csv', 'rb') as f:
 	reader = csv.reader(f)
 	for i, line in enumerate(reader):
 		# for each cik, read html page on sec
@@ -107,7 +107,7 @@ with open('C:/cygwin64/home/Mike.Breecher/sec-scraper/test/ciks.csv', 'rb') as f
 												if len(std_list) > 0:
 													fact_count = len(std_list) + len(ext_list)
 													print testcik + "," + split_name + "," + doctype+ "," + split_date + "," + str(fact_count) + ',' + str(len(set(std_list))) + "," + str(len(set(ext_list))) 
-													output = [testcik, doctype, split_date, fact_count, len(set(std_list)), len(set(ext_list))]
+													output = [testcik,split_name, doctype, split_date, fact_count, len(set(std_list)), len(set(ext_list))]
 													writer.writerow(output)
 													set(ignored)
 													result = result + 1
