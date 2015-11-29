@@ -11,6 +11,9 @@ class filer(object):
 		self.secUrl = 'http://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=' + self.cik + '&type=10&count=40'
 		self.instances = []
 
+        def __str__(self):
+            return str(self.cik) + ' has ' + str(len(self.instances)) + ' filings'
+
 	def addInstances(self, number = 1):
 		"""
 		given an integer number, this will populate a list with the instance details of the last n filings.
